@@ -1,5 +1,5 @@
 import "./styles/home.css";
-import home from "./pages/home.js";
+import home from "./tabs/home.js";
 
 home();
 

@@ -5,30 +5,42 @@ export default function addToDOM() {
 
     // call functions
     addTab();
+    addMain();
+    addFooter();
 }
 
-// create tabs
+// create tab header
 function addTab() {
-    const tab = document.createElement("div");
-    content.appendChild(tab);
-    tab.className += "tab";
-
-    const button1 = document.createElement("button");
-    tab.appendChild(button1);
-    button1.className = "home";
-    button1.innerHTML = "Home";
+    const tabContainer = document.createElement("div");
+    content.appendChild(tabContainer);
+    tabContainer.className += "tab";
 
     const list = addElements("button", 3, ["home", "Menu", "Contact"]);
-    list.forEach((index) => console.log(index.innerText));
+
+    appendElements(list, tabContainer);
+}
+
+// create main body
+function addMain() {
+    const main = document.createElement("div");
+    main.textContent += "Main Content Goes Here";
+    content.appendChild(main);
+}
+
+// create footer
+function addFooter() {
+    const footer = document.createEvent("div");
+    footer.textContent += "Footer";
+    content.appendChild(footer);
 }
 
 /**
- * addElements
+ * addElements.
  *
  * @param {string} type of element
  * @param {number} number of elements to make
  * @param {array} arr optional array of strings
- * @return list of elements
+ * @recontentturn list of elements
  */
 function addElements(type, number, arr = undefined) {
     const list = [];
@@ -41,6 +53,15 @@ function addElements(type, number, arr = undefined) {
         }
         list.push(element);
     }
-
     return list;
+}
+
+/**
+ * appendElements.
+ *
+ * @param {array} list of elements
+ * @param {Object} parent to append to
+ */
+function appendElements(list, parent) {
+    list.forEach((element) => parent.appendChild(element));
 }

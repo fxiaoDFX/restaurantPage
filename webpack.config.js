@@ -15,8 +15,8 @@ module.exports = {
     devServer: {
         static: "./dist",
         port: 3000,
-        compress: true,
-        open: true,
+        hot: false,
+        liveReload: true,
     },
     optimization: {
         runtimeChunk: "single",

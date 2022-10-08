@@ -3,6 +3,31 @@
     margin: 0;
 }
 
+#content {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tab,
+.footer {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 2px 0px;
+}
+
+button {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: bold;
+    background-color: lightgrey;
+    border: 2px solid grey;
+}
+
+
+
 div {
-    border: 2px solid blue;
+    border: 2px solid black;
 }

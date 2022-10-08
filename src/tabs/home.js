@@ -1,7 +1,7 @@
-const content = document.getElementById("content");
+const content = document.getElementById('content');
 
 export default function addToDOM() {
-    const h1 = document.createElement("h1");
+    const h1 = document.createElement('h1');
 
     // call functions
     addTab();
@@ -11,26 +11,27 @@ export default function addToDOM() {
 
 // create tab header
 function addTab() {
-    const tabContainer = document.createElement("div");
+    const tabContainer = document.createElement('div');
     content.appendChild(tabContainer);
-    tabContainer.className += "tab";
+    tabContainer.className += 'tab';
 
-    const list = addElements("button", 3, ["home", "Menu", "Contact"]);
+    const list = addElements('button', 3, ['Home', 'Menu', 'Contact']);
 
     appendElements(list, tabContainer);
 }
 
 // create main body
 function addMain() {
-    const main = document.createElement("div");
-    main.textContent += "Main Content Goes Here";
+    const main = document.createElement('div');
+    main.textContent += 'Main Content Goes Here';
     content.appendChild(main);
 }
 
 // create footer
 function addFooter() {
-    const footer = document.createEvent("div");
-    footer.textContent += "Footer";
+    const footer = document.createElement('div');
+    footer.textContent += 'Footer';
+    footer.className += 'footer';
     content.appendChild(footer);
 }
 

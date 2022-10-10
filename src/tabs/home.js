@@ -24,7 +24,19 @@ function addTab() {
 function addMain() {
     const main = document.createElement('div');
     main.textContent += 'Main Content Goes Here';
+    main.className += 'main';
     content.appendChild(main);
+
+    restaurantInfo();
+
+    function restaurantInfo() {
+        const nameElement = document.createElement('h1');
+        const descriptionElement = document.createElement('p');
+
+        descriptionElement.textContent += description;
+        nameElement.textContent += name;
+        main.append(nameElement, descriptionElement);
+    }
 }
 
 // create footer
@@ -66,3 +78,8 @@ function addElements(type, number, arr = undefined) {
 function appendElements(list, parent) {
     list.forEach((element) => parent.appendChild(element));
 }
+
+const description =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula.'; 
+
+const name = 'Lorem Ipsum';
+

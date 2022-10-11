@@ -5,37 +5,51 @@ export default function addToDOM() {
 
     // call functions
     addTab();
-    addMain();
+    addHome();
     addFooter();
 }
 
-// create tab header
+// create tab links
 function addTab() {
     const tabContainer = document.createElement('div');
     content.appendChild(tabContainer);
     tabContainer.className += 'tab';
 
     const list = addElements('button', 3, ['Home', 'Menu', 'Contact']);
-
+    
     appendElements(list, tabContainer);
+    // set home tab as default
+    list[0].classList.add('active');
+    addClass(list,'tablinks');
+    handleClick();
+
+    function handleClick() {
+        list.forEach(button => {
+            button.addEventListener('click', button => {
+                list.forEach(button => button.classList.remove('active'))
+                button.target.classList.add('active');
+            })
+        })
+    }
 }
 
-// create main body
-function addMain() {
-    const main = document.createElement('div');
-    main.textContent += 'Main Content Goes Here';
-    main.className += 'main';
-    content.appendChild(main);
+// create home body
+function addHome() {
+    const home = document.createElement('div');
+    home.textContent += 'Main Content Goes Here';
+    home.classList.add('home', 'tabcontent', 'active');
+    content.appendChild(home);
 
     restaurantInfo();
 
+    // create header and description for restaurant
     function restaurantInfo() {
         const nameElement = document.createElement('h1');
         const descriptionElement = document.createElement('p');
 
         descriptionElement.textContent += description;
         nameElement.textContent += name;
-        main.append(nameElement, descriptionElement);
+        home.append(nameElement, descriptionElement);
     }
 }
 
@@ -76,7 +90,17 @@ function addElements(type, number, arr = undefined) {
  * @param {Object} parent to append to
  */
 function appendElements(list, parent) {
-    list.forEach((element) => parent.appendChild(element));
+    list.forEach(element => parent.appendChild(element));
+}
+
+/**
+ * addClass.
+ *
+ * @param {array} list of elements
+ * @param {string} name of class
+ */
+function addClass(list, name) {
+    list.forEach(element => element.classList.add('tablinks'));
 }
 
 const description =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula.'; 

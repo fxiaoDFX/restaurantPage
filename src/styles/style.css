@@ -10,6 +10,10 @@
     justify-content: space-between;
 }
 
+div {
+    border: 2px solid black;
+}
+
 .tab,
 .footer {
     display: flex;
@@ -23,11 +27,26 @@ button {
     padding-right: 6px;
     font-weight: bold;
     background-color: lightgrey;
-    border: 2px solid grey;
+    outline: 2px solid grey;
 }
 
-
-
-div {
-    border: 2px solid black;
+.tab button:hover {
+    background-color: #eee;
 }
+
+.tab button.active {
+    background-color: #aaa;
+}
+
+.tabcontent {
+    display: none;
+}
+
+div.active {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    border-color: blue;
+    justify-content: center;
+}
+

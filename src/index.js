@@ -1,4 +1,4 @@
-import "./styles/home.css";
+import "./styles/style.css";
 import home from "./tabs/home.js";
 
 home();

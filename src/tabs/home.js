@@ -1,8 +1,6 @@
 const content = document.getElementById('content');
 
 export default function addToDOM() {
-    const h1 = document.createElement('h1');
-
     // call functions
     addTab();
     addHome();

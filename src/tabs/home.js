@@ -16,11 +16,12 @@ function addTab() {
     tabContainer.className += 'tab';
 
     const list = addElements('button', 3, ['Home', 'Menu', 'Contact']);
-    
+
     appendElements(list, tabContainer);
     // set home tab as default
     list[0].classList.add('active');
     addClass(list,'tablinks');
+    addId(list, ['home', 'menu', 'contact']);
     handleClick();
 
     function handleClick() {
@@ -103,6 +104,12 @@ function addClass(list, name) {
     list.forEach(element => element.classList.add('tablinks'));
 }
 
+function addId(list, nameList) {
+    if(list.length != nameList.length) console.log('Error: list are not the same size.')
+    for(let i = 0; i < list.length; i++) {
+        list[i].setAttribute("id", nameList[i]);
+    }
+}
 const description =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula.'; 
 
 const name = 'Lorem Ipsum';

@@ -42,7 +42,7 @@ button {
     display: none;
 }
 
-div.active {
+.tabcontent.active {
     display: flex;
     flex-direction: column;
     flex-grow: 1;

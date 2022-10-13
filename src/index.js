@@ -1,10 +1,6 @@
-import home from "./tabs/home.js";
-import menu from "./tabs/menu.js";
-import contact from "./tabs/contact.js";
+import page from "./tabs/home.js";
 import "./styles/style.css";
 
-home();
-menu();
-contact();
+page();
 
 console.log("test");

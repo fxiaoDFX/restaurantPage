@@ -1,9 +1,14 @@
+import addMenu from './menu.js';
+import addContact from './contact.js';
+
 const content = document.getElementById('content');
 
 export default function addToDOM() {
     // call functions
     addTab();
     addHome();
+    addMenu();
+    addContact();
     addFooter();
 }
 
@@ -22,11 +27,21 @@ function addTab() {
     addId(list, ['home', 'menu', 'contact']);
     handleClick();
 
+    // add and remove active class so current content shows up when tab clicked
     function handleClick() {
         list.forEach(button => {
             button.addEventListener('click', button => {
                 list.forEach(button => button.classList.remove('active'))
                 button.target.classList.add('active');
+                
+                // remove active from all tabcontents
+                const tabcontents = document.querySelectorAll('.tabcontent');
+                tabcontents.forEach(element => element.classList.remove('active'));
+                
+                // add active to tabcontent matching button id
+                const id = button.target.id;
+                const target = document.querySelector(`.${id}`);
+                target.classList.add('active');
             })
         })
     }
@@ -108,6 +123,7 @@ function addId(list, nameList) {
         list[i].setAttribute("id", nameList[i]);
     }
 }
+
 const description =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula.'; 
 
 const name = 'Lorem Ipsum';

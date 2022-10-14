@@ -23,7 +23,7 @@ function addTab() {
     appendElements(list, tabContainer);
     // set home tab as default
     // change this back to list[0] when done testing tab pages
-    list[2].classList.add('active');
+    list[1].classList.add('active');
     addClass(list,'tablinks');
     addId(list, ['home', 'menu', 'contact']);
     handleClick();

@@ -6,10 +6,10 @@ export default function addToDOM() {
 
 function addContact() {
     const contactContainer = document.createElement('div');
-   // contactContainer.classList.add('contact', 'tabcontent');
-    contactContainer.classList.add('contact', 'tabcontent', 'active');
+    contactContainer.classList.add('contact', 'tabcontent');
     contactContainer.textContent += 'contact placeholder';
     content.appendChild(contactContainer);
+
     title();
     address();
     phone();

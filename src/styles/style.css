@@ -47,6 +47,12 @@ button {
     flex-direction: column;
     flex-grow: 1;
     border-color: blue;
+}
+
+.home {
     justify-content: center;
 }
 
+.menu {
+    align-items: center;
+}

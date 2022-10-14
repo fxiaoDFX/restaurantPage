@@ -22,7 +22,8 @@ function addTab() {
 
     appendElements(list, tabContainer);
     // set home tab as default
-    list[0].classList.add('active');
+    // change this back to list[0] when done testing tab pages
+    list[2].classList.add('active');
     addClass(list,'tablinks');
     addId(list, ['home', 'menu', 'contact']);
     handleClick();
@@ -51,7 +52,9 @@ function addTab() {
 function addHome() {
     const home = document.createElement('div');
     home.textContent += 'Main Content Goes Here';
-    home.classList.add('home', 'tabcontent', 'active');
+   // home.classList.add('home', 'tabcontent', 'active');
+    home.classList.add('home', 'tabcontent');
+
     content.appendChild(home);
 
     restaurantInfo();

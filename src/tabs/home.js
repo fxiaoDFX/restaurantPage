@@ -1,48 +1,50 @@
-import addMenu from './menu.js';
-import addContact from './contact.js';
+import addMenu from "./menu.js"
+import addContact from "./contact.js"
 
-const content = document.getElementById('content');
+const content = document.getElementById("content")
 
 export default function addToDOM() {
     // call functions
-    addTab();
-    addHome();
-    addMenu();
-    addContact();
-    addFooter();
+    addTab()
+    addHome()
+    addMenu()
+    addContact()
+    addFooter()
 }
 
 // create tab links
 function addTab() {
-    const tabContainer = document.createElement('div');
-    content.appendChild(tabContainer);
-    tabContainer.className += 'tab';
+    const tabContainer = document.createElement("div")
+    content.appendChild(tabContainer)
+    tabContainer.className += "tab"
 
-    const list = addElements('button', 3, ['Home', 'Menu', 'Contact']);
+    const list = addElements("button", 3, ["Home", "Menu", "Contact"])
 
-    appendElements(list, tabContainer);
+    appendElements(list, tabContainer)
     // set home tab as default
     // change this back to list[0] when done testing tab pages
-    list[1].classList.add('active');
-    addClass(list,'tablinks');
-    addId(list, ['home', 'menu', 'contact']);
-    handleClick();
+    list[1].classList.add("active")
+    addClass(list, "tablinks")
+    addId(list, ["home", "menu", "contact"])
+    handleClick()
 
     // add and remove active class so current content shows up when tab clicked
     function handleClick() {
-        list.forEach(button => {
-            button.addEventListener('click', button => {
-                list.forEach(button => button.classList.remove('active'))
-                button.target.classList.add('active');
-                
+        list.forEach((button) => {
+            button.addEventListener("click", (button) => {
+                list.forEach((button) => button.classList.remove("active"))
+                button.target.classList.add("active")
+
                 // remove active from all tabcontents
-                const tabcontents = document.querySelectorAll('.tabcontent');
-                tabcontents.forEach(element => element.classList.remove('active'));
-                
+                const tabcontents = document.querySelectorAll(".tabcontent")
+                tabcontents.forEach((element) =>
+                    element.classList.remove("active")
+                )
+
                 // add active to tabcontent matching button id
-                const id = button.target.id;
-                const target = document.querySelector(`.${id}`);
-                target.classList.add('active');
+                const id = button.target.id
+                const target = document.querySelector(`.${id}`)
+                target.classList.add("active")
             })
         })
     }
@@ -50,32 +52,32 @@ function addTab() {
 
 // create home body
 function addHome() {
-    const home = document.createElement('div');
-    home.textContent += 'Main Content Goes Here';
-   // home.classList.add('home', 'tabcontent', 'active');
-    home.classList.add('home', 'tabcontent');
+    const home = document.createElement("div")
+    home.textContent += "Main Content Goes Here"
+    //home.classList.add("home", "tabcontent", "active")
+    home.classList.add("home", "tabcontent")
 
-    content.appendChild(home);
+    content.appendChild(home)
 
-    restaurantInfo();
+    restaurantInfo()
 
     // create header and description for restaurant
     function restaurantInfo() {
-        const nameElement = document.createElement('h1');
-        const descriptionElement = document.createElement('p');
+        const nameElement = document.createElement("h1")
+        const descriptionElement = document.createElement("p")
 
-        descriptionElement.textContent += description;
-        nameElement.textContent += name;
-        home.append(nameElement, descriptionElement);
+        descriptionElement.textContent += description
+        nameElement.textContent += name
+        home.append(nameElement, descriptionElement)
     }
 }
 
 // create footer
 function addFooter() {
-    const footer = document.createElement('div');
-    footer.textContent += 'Footer';
-    footer.className += 'footer';
-    content.appendChild(footer);
+    const footer = document.createElement("div")
+    footer.textContent += "Footer"
+    footer.className += "footer"
+    content.appendChild(footer)
 }
 
 /**
@@ -87,17 +89,17 @@ function addFooter() {
  * @recontentturn list of elements
  */
 function addElements(type, number, arr = undefined) {
-    const list = [];
+    const list = []
 
     for (let i = 0; i < number; i++) {
-        const element = document.createElement(type);
+        const element = document.createElement(type)
 
         if (arr != undefined) {
-            element.textContent += arr[i];
+            element.textContent += arr[i]
         }
-        list.push(element);
+        list.push(element)
     }
-    return list;
+    return list
 }
 
 /**
@@ -107,7 +109,7 @@ function addElements(type, number, arr = undefined) {
  * @param {Object} parent to append to
  */
 function appendElements(list, parent) {
-    list.forEach(element => parent.appendChild(element));
+    list.forEach((element) => parent.appendChild(element))
 }
 
 /**
@@ -117,17 +119,18 @@ function appendElements(list, parent) {
  * @param {string} name of class
  */
 function addClass(list, name) {
-    list.forEach(element => element.classList.add('tablinks'));
+    list.forEach((element) => element.classList.add("tablinks"))
 }
 
 function addId(list, nameList) {
-    if(list.length != nameList.length) console.log('Error: list are not the same size.')
-    for(let i = 0; i < list.length; i++) {
-        list[i].setAttribute("id", nameList[i]);
+    if (list.length != nameList.length)
+        console.log("Error: list are not the same size.")
+    for (let i = 0; i < list.length; i++) {
+        list[i].setAttribute("id", nameList[i])
     }
 }
 
-const description =  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula.'; 
+const description =
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ut tortor imperdiet, porttitor arcu a, fermentum nisl. Fusce eu odio a dolor accumsan tincidunt vel ac nibh. Phasellus interdum luctus nisi, a venenatis nibh iaculis et. Maecenas imperdiet mi sit amet molestie convallis. Proin sed suscipit enim, in posuere tellus. Morbi pharetra mauris quis dolor iaculis tincidunt. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non finibus urna, ornare ultrices nunc. Suspendisse diam lectus, eleifend nec luctus eu, convallis eu ligula."
 
-const name = 'Lorem Ipsum';
-
+const name = "Lorem Ipsum"

@@ -8,8 +8,9 @@ export default function addToDOM() {
 // Add menu items here
 function addMenu() {
     const menuContainer = document.createElement("div")
-    //    menuContainer.classList.add('menu', 'tabcontent');
-    menuContainer.classList.add("menu", "tabcontent", "active")
+    // the 2 below lines are for testing purposes
+    menuContainer.classList.add("menu", "tabcontent")
+    //   menuContainer.classList.add("menu", "tabcontent", "active")
     menuContainer.textContent += "menu placeholder"
     content.appendChild(menuContainer)
 

@@ -1,5 +1,8 @@
 import addMenu from "./menu.js"
 import addContact from "./contact.js"
+// images
+import burgerAndFries from "../assests/images/burger-and-fries.jpg"
+import burger from "../assests/images/burger-with-spinach.jpg"
 
 const content = document.getElementById("content")
 
@@ -23,7 +26,7 @@ function addTab() {
     appendElements(list, tabContainer)
     // set home tab as default
     // change this back to list[0] when done testing tab pages
-    list[1].classList.add("active")
+    list[0].classList.add("active")
     addClass(list, "tablinks")
     addId(list, ["home", "menu", "contact"])
     handleClick()
@@ -54,21 +57,23 @@ function addTab() {
 function addHome() {
     const home = document.createElement("div")
     home.textContent += "Main Content Goes Here"
-    //home.classList.add("home", "tabcontent", "active")
+    home.classList.add("home", "tabcontent", "active")
     home.classList.add("home", "tabcontent")
 
-    content.appendChild(home)
-
+    content.append(home)
     restaurantInfo()
 
     // create header and description for restaurant
     function restaurantInfo() {
+        const div = document.createElement("div")
         const nameElement = document.createElement("h1")
         const descriptionElement = document.createElement("p")
 
+        div.append(nameElement, descriptionElement)
+        div.classList.add("description")
         descriptionElement.textContent += description
         nameElement.textContent += name
-        home.append(nameElement, descriptionElement)
+        home.append(div)
     }
 }
 
@@ -78,6 +83,19 @@ function addFooter() {
     footer.textContent += "Footer"
     footer.className += "footer"
     content.appendChild(footer)
+}
+
+/**
+ * addImage.
+ * returns an image element
+ * @param {string} source is the path to image
+ * #param {string} className is the optional class for element
+ */
+function addImage(source, className) {
+    const img = document.createElement("img")
+    img.src = source
+    if (className !== "") img.classList.add(className)
+    return img
 }
 
 /**

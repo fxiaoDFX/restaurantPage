@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    background-color: #555555;
 }
 
 #content {
@@ -21,6 +20,19 @@ div {
     justify-content: center;
     text-align: center;
     padding: 2px 0px;
+    position: fixed;
+    z-index: 2;
+    min-width: 100vw;
+}
+
+.tab {
+    top: 0;
+    background-color: white;
+}
+
+.footer {
+    bottom: 0;
+    background-color: grey;
 }
 
 button {
@@ -56,4 +68,32 @@ button {
 
 .menu {
     align-items: center;
+}
+
+.home.tabcontent {
+    position: relative;
+    background-image: url("../assests/images/burger-and-fries.jpg");
+    background-size: 100vw 110vh;
+}
+
+.tabcontent .description {
+    color: white;
+    position: absolute;
+    top: 0;
+    margin: 48px;
+}
+
+.description h1 {
+    font-size: 4rem;
+}
+
+.description p {
+    width: 50vw;
+    background-color: rgba(100, 100, 100, 0.3);
+    border-radius: 16px;
+    border: none;
+    padding: 8px;
+    margin-top: 8px;
+    margin-left: 24px;
+    line-height: 25px;
 }
